@@ -188,7 +188,6 @@ link1`https://www.google.com`3
 
 1. Do NOT manually edit `mem.txt`. The program expects each line to follow the format: `code`URL`count`
 2. Do NOT use the character `` ` `` in codes or URLs. It is used as a data separator.
-3. `mem.txt` contains saved URLs in plain text. Do not store sensitive URLs containing passwords, tokens, or private data.
-4. Keep `mem.txt` with the program. If it is deleted or moved, the program may create a new empty file.
-5. Back up `mem.txt` if the saved data is important. The program does not create automatic backups.
-6. This is a LOCAL URL shortener. Codes such as `link1` are not public internet URLs. The program must have the saved data to resolve them.
+3. Keep `mem.txt` with the program. If it is deleted or moved, the program may create a new empty file.
+4. Back up `mem.txt` if the saved data is important. The program does not create automatic backups.
+5. This is a LOCAL URL shortener. Codes such as `link1` are not public internet URLs. The program must have the saved data to resolve them.
