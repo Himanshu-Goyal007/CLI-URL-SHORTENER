@@ -10,9 +10,9 @@ REQUIREMENTS
 
 HOW TO RUN
 ==========
-Open a terminal in the folder containing main.py and use:
+Open a terminal in the folder containing ls.py and use:
 
-    python main.py <command> <arguments>
+    python ls.py <command> <arguments>
 
 The program stores saved links in mem.txt.
 
@@ -23,10 +23,10 @@ COMMANDS
 1. SHORTEN A URL
 ----------------
 Syntax:
-    python main.py shorten <URL>
+    python ls.py shorten <URL>
 
 Example:
-    python main.py shorten https://www.google.com
+    python ls.py shorten https://www.google.com
 
 Creates an automatically generated code such as "link1".
 
@@ -34,10 +34,10 @@ Creates an automatically generated code such as "link1".
 2. SHORTEN WITH AN ALIAS
 ------------------------
 Syntax:
-    python main.py shorten <URL> --alias <alias>
+    python ls.py shorten <URL> --alias <alias>
 
 Example:
-    python main.py shorten https://www.google.com --alias google
+    python ls.py shorten https://www.google.com --alias google
 
 Creates a custom code.
 
@@ -49,10 +49,10 @@ in mem.txt.
 3. RESOLVE
 ----------
 Syntax:
-    python main.py resolve <code>
+    python ls.py resolve <code>
 
 Example:
-    python main.py resolve link1
+    python ls.py resolve link1
 
 Opens the saved URL and increases its resolve count.
 
@@ -60,7 +60,7 @@ Opens the saved URL and increases its resolve count.
 4. DELETE
 ---------
 Syntax:
-    python main.py delete <code>
+    python ls.py delete <code>
 
 Deletes the saved code and URL.
 
@@ -71,7 +71,7 @@ There is no undo option.
 5. COUNT
 --------
 Syntax:
-    python main.py count <code>
+    python ls.py count <code>
 
 Displays how many times the code has been resolved.
 
@@ -79,7 +79,7 @@ Displays how many times the code has been resolved.
 6. LIST
 -------
 Syntax:
-    python main.py list
+    python ls.py list
 
 Displays all saved codes and URLs.
 
@@ -87,7 +87,7 @@ Displays all saved codes and URLs.
 7. INFO
 --------
 Syntax:
-    python main.py info <code>
+    python ls.py info <code>
 
 Displays the code, URL, and resolve count.
 
@@ -95,7 +95,7 @@ Displays the code, URL, and resolve count.
 8. CLEAR
 --------
 Syntax:
-    python main.py clear
+    python ls.py clear
 
 Deletes all saved links after confirmation.
 
@@ -107,7 +107,7 @@ There is no undo option.
 9. RESET
 --------
 Syntax:
-    python main.py reset <code>
+    python ls.py reset <code>
 
 Resets the resolve count of a code to 0.
 
@@ -118,7 +118,7 @@ The previous resolve count cannot be recovered.
 10. SEARCH
 ---------
 Syntax:
-    python main.py search <text>
+    python ls.py search <text>
 
 Finds saved URLs containing the specified text.
 
@@ -126,7 +126,7 @@ Finds saved URLs containing the specified text.
 11. STATS
 --------
 Syntax:
-    python main.py stats
+    python ls.py stats
 
 Displays the total links, total resolves, and most used link.
 
@@ -134,8 +134,8 @@ Displays the total links, total resolves, and most used link.
 12. SORT
 --------
 Syntax:
-    python main.py sort
-    python main.py sort reversed
+    python ls.py sort
+    python ls.py sort reversed
 
 "sort" displays links from highest to lowest resolve count.
 
