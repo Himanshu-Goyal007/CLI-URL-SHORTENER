@@ -1,180 +1,194 @@
-CLI URL SHORTENER
-=================
+# CLI URL Shortener
 
 A simple command-line URL shortener made with Python.
 
-REQUIREMENTS
-============
+## Requirements
+
 - Python 3.x
 - No external libraries required.
 
-HOW TO RUN
-==========
-Open a terminal in the folder containing ls.py and use:
+## How to Run
 
-    python ls.py <command> <arguments>
+Open a terminal in the folder containing `ls.py` and use:
 
-The program stores saved links in mem.txt.
+```
+python ls.py <command> <arguments>
+```
 
+The program stores saved links in `mem.txt`.
 
-COMMANDS
-========
+## Commands
 
-1. SHORTEN A URL
-----------------
+### 1. Shorten a URL
+
 Syntax:
-    python ls.py shorten <URL>
+
+```
+python ls.py shorten <URL>
+```
 
 Example:
-    python ls.py shorten https://www.google.com
 
-Creates an automatically generated code such as "link1".
+```
+python ls.py shorten https://www.google.com
+```
 
+Creates an automatically generated code such as `link1`.
 
-2. SHORTEN WITH AN ALIAS
-------------------------
+### 2. Shorten with an Alias
+
 Syntax:
-    python ls.py shorten <URL> --alias <alias>
+
+```
+python ls.py shorten <URL> --alias <alias>
+```
 
 Example:
-    python ls.py shorten https://www.google.com --alias google
+
+```
+python ls.py shorten https://www.google.com --alias google
+```
 
 Creates a custom code.
 
-WARNING:
-Aliases cannot contain the character ` because it is used as a separator
-in mem.txt.
+**Warning:** Aliases cannot contain the character `` ` `` because it is used as a separator in `mem.txt`.
 
+### 3. Resolve
 
-3. RESOLVE
-----------
 Syntax:
-    python ls.py resolve <code>
+
+```
+python ls.py resolve <code>
+```
 
 Example:
-    python ls.py resolve link1
+
+```
+python ls.py resolve link1
+```
 
 Opens the saved URL and increases its resolve count.
 
+### 4. Delete
 
-4. DELETE
----------
 Syntax:
-    python ls.py delete <code>
+
+```
+python ls.py delete <code>
+```
 
 Deletes the saved code and URL.
 
-WARNING:
-There is no undo option.
+**Warning:** There is no undo option.
 
+### 5. Count
 
-5. COUNT
---------
 Syntax:
-    python ls.py count <code>
+
+```
+python ls.py count <code>
+```
 
 Displays how many times the code has been resolved.
 
+### 6. List
 
-6. LIST
--------
 Syntax:
-    python ls.py list
+
+```
+python ls.py list
+```
 
 Displays all saved codes and URLs.
 
+### 7. Info
 
-7. INFO
---------
 Syntax:
-    python ls.py info <code>
+
+```
+python ls.py info <code>
+```
 
 Displays the code, URL, and resolve count.
 
+### 8. Clear
 
-8. CLEAR
---------
 Syntax:
-    python ls.py clear
+
+```
+python ls.py clear
+```
 
 Deletes all saved links after confirmation.
 
-WARNING:
-This permanently deletes all saved links and resolve counts.
-There is no undo option.
+**Warning:** This permanently deletes all saved links and resolve counts. There is no undo option.
 
+### 9. Reset
 
-9. RESET
---------
 Syntax:
-    python ls.py reset <code>
+
+```
+python ls.py reset <code>
+```
 
 Resets the resolve count of a code to 0.
 
-WARNING:
-The previous resolve count cannot be recovered.
+**Warning:** The previous resolve count cannot be recovered.
 
+### 10. Search
 
-10. SEARCH
----------
 Syntax:
-    python ls.py search <text>
+
+```
+python ls.py search <text>
+```
 
 Finds saved URLs containing the specified text.
 
+### 11. Stats
 
-11. STATS
---------
 Syntax:
-    python ls.py stats
+
+```
+python ls.py stats
+```
 
 Displays the total links, total resolves, and most used link.
 
+### 12. Sort
 
-12. SORT
---------
 Syntax:
-    python ls.py sort
-    python ls.py sort reversed
 
-"sort" displays links from highest to lowest resolve count.
+```
+python ls.py sort
+python ls.py sort reversed
+```
 
-"sort reversed" displays links from lowest to highest resolve count.
+`sort` displays links from highest to lowest resolve count.
 
-NOTE:
-Sorting only changes the display order. It does not modify mem.txt.
+`sort reversed` displays links from lowest to highest resolve count.
 
+**Note:** Sorting only changes the display order. It does not modify `mem.txt`.
 
-DATA STORAGE
-============
-Each saved link is stored in mem.txt as:
+## Data Storage
 
-    code`URL`count
+Each saved link is stored in `mem.txt` as:
+
+```
+code`URL`count
+```
 
 Example:
 
-    link1`https://www.google.com`3
+```
+link1`https://www.google.com`3
+```
 
+## Important Warnings
 
-IMPORTANT WARNINGS
-==================
-
-1. Do NOT manually edit mem.txt.
-   The program expects each line to follow the format:
-       code`URL`count
-
-2. Do NOT use the character ` in codes or URLs.
-   It is used as a data separator.
-
-3. mem.txt contains saved URLs in plain text.
-   Do not store sensitive URLs containing passwords, tokens, or private data.
-
-4. Keep mem.txt with the program.
-   If it is deleted or moved, the program may create a new empty file.
-
-5. Back up mem.txt if the saved data is important.
-   The program does not create automatic backups.
-
-6. This is a LOCAL URL shortener.
-   Codes such as "link1" are not public internet URLs.
-   The program must have the saved data to resolve them.
+1. Do NOT manually edit `mem.txt`. The program expects each line to follow the format: `code`URL`count`
+2. Do NOT use the character `` ` `` in codes or URLs. It is used as a data separator.
+3. `mem.txt` contains saved URLs in plain text. Do not store sensitive URLs containing passwords, tokens, or private data.
+4. Keep `mem.txt` with the program. If it is deleted or moved, the program may create a new empty file.
+5. Back up `mem.txt` if the saved data is important. The program does not create automatic backups.
+6. This is a LOCAL URL shortener. Codes such as `link1` are not public internet URLs. The program must have the saved data to resolve them.
