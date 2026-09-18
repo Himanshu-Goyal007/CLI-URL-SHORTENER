@@ -186,7 +186,7 @@ link1`https://www.google.com`3
 
 ## Important Warnings
 
-1. Do NOT manually edit `mem.txt`. The program expects each line to follow the format: `code`URL`count`
+1. Do NOT manually edit `mem.txt`. The program expects each line to follow the format: ``code`URL`count`` and the last line existing and being empty.
 2. Do NOT use the character `` ` `` in codes or URLs. It is used as a data separator.
 3. Keep `mem.txt` with the program. If it is deleted or moved, the program may create a new empty file.
 4. Back up `mem.txt` if the saved data is important. The program does not create automatic backups.
