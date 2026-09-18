@@ -29,7 +29,7 @@ def find_line(index, type = 'code'):
                 return i
             i += 1
         elif type == 'link':
-            if arguments[index] in d[x]:
+            if arguments[index].lower() in d[x]:
                 l.append(i)
             i += 1
     return l
@@ -234,7 +234,26 @@ if len(arguments) > 1:
                 print(f'{arguments[-1]} is not a recognised command')
         else:
             print(f"Maximum 1 argument expected after 'sort'")
-            
+
+    elif arguments[1] == 'rename':
+        if len(arguments) == 4:
+            if arguments[-2] in d and arguments[-1] not in d:
+                lines = link_list[find_line(-2)].split("`")
+                lines[0] = arguments[-1]
+                lines = "`".join(lines) 
+                link_list[find_line(-2)] = lines
+                write(link_list)
+            elif arguments[-2] not in d and arguments[-1] in d:
+                print(f'{arguments[-2]} is not a saved code')
+            elif arguments[-1] in d:
+                print(f'{arguments[-1]} is already a used code')                
+            else:
+                print(f'{arguments[-2]} is not a saved code')
+        else:
+            print("Please enter correct amount of arguments")
+            print('Please read Readme.txt for list of commands')
+
+        
 
 
     else:
