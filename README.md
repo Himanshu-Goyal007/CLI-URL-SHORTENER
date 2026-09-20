@@ -170,6 +170,17 @@ python ls.py sort reversed
 
 **Note:** Sorting only changes the display order. It does not modify `mem.txt`.
 
+### 13. Rename
+
+Syntax:
+
+```
+python ls.py rename <old code> <new code>
+```
+
+Replaces an existing code name by the new given name.
+This does not reset click count
+
 ## Data Storage
 
 Each saved link is stored in `mem.txt` as:
