@@ -78,7 +78,7 @@ if len(arguments) > 1:
                         print("Code name cant contain '`'")
                 else:
                     print(f'{arguments[-2]} is not a recognised command')
-                    print('Please read Readme.txt for list of commands')
+                    print('Please read README.md for list of commands')
 
             else:
                 print('Invalid URL')
@@ -88,7 +88,7 @@ if len(arguments) > 1:
             print('No alias was entered')
         elif len(arguments)  == 4:
             print(f'{arguments[-1]} is not a recognised command')
-            print('Please read Readme.txt for list of commands')
+            print('Please read README.md for list of commands')
         elif arguments[3] == '--alias':
             print("Only 1 argument expected after '--alias'")
         else:
@@ -251,15 +251,15 @@ if len(arguments) > 1:
                 print(f'{arguments[-2]} is not a saved code')
         else:
             print("Please enter correct amount of arguments")
-            print('Please read Readme.txt for list of commands')
+            print('Please read README.md for list of commands')
 
         
 
 
     else:
         print(f'{arguments[1]} is not a recognised command')
-        print('Please read Readme.txt for list of commands')
+        print('Please read README.md for list of commands')
 
 else:
     print("no command entered to execute")
-    print('Please read Readme.txt for list of commands')
+    print('Please read README.md for list of commands')
