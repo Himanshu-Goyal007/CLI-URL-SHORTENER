@@ -179,6 +179,7 @@ python ls.py rename <old code> <new code>
 ```
 
 Replaces an existing code name by the new given name.
+
 This does not reset click count
 
 ## Data Storage
