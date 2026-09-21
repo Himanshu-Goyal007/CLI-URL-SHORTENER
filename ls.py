@@ -10,7 +10,6 @@ d = {}
 try:
     with open('mem.txt', 'r') as file:
         link_list = file.readlines()
-        number = len(link_list) + 1
         for i in range(len(link_list)):
             current_link = link_list[i].strip().split('`')
             d[current_link[0]] = current_link[1]
@@ -18,7 +17,6 @@ except FileNotFoundError:
     with open('mem.txt', 'w') as file:
         file.write("")
     link_list = []
-    number = 1
 
 def find_line(index, type = 'code'):
     i = 0
@@ -29,7 +27,7 @@ def find_line(index, type = 'code'):
                 return i
             i += 1
         elif type == 'link':
-            if arguments[index].lower() in d[x]:
+            if arguments[index].lower() in d[x].lower():
                 l.append(i)
             i += 1
     return l
@@ -42,11 +40,15 @@ def url_validity(url):
     parsed = urlparse(url)
     return parsed.scheme in ('http', 'https') and bool(parsed.netloc)
 
-def new_num(number):
+def new_num():
+    max = 0
+    if not link_list:
+        return 1
     for x in link_list:
-        if f'link{number}' == x.split("`")[0]:
-            return new_num(number+1)
-    return number
+        if x.split("`")[0][:4] == 'link' and x.split("`")[0][4:].isdecimal():
+            if int(x.split("`")[0][4:]) > max:
+                max = int(x.split("`")[0][4:])
+    return max + 1
 
 if len(arguments) > 1:
 
@@ -54,8 +56,8 @@ if len(arguments) > 1:
         if len(arguments) == 3:
             if url_validity(arguments[-1]):
                 with open('mem.txt', 'a') as file:
-                    file.write(f'link{new_num(number)}`{arguments[-1]}`0\n')
-                    print(f'link{new_num(number)}')
+                    file.write(f'link{new_num()}`{arguments[-1]}`0\n')
+                    print(f'link{new_num()}')
             else:
                 print('Invalid URL')
         elif len(arguments) == 5:
