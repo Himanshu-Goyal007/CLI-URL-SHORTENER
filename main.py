@@ -57,7 +57,7 @@ if len(arguments) > 1:
             if url_validity(arguments[-1]):
                 with open('mem.txt', 'a') as file:
                     file.write(f'link{new_num()}`{arguments[-1]}`0\n')
-                    print(f'link{new_num()}')
+                    print(f'code created for {arguments[-1]} with name \'link{new_num()}\'')
             else:
                 print('Invalid URL')
         elif len(arguments) == 5:
@@ -67,6 +67,7 @@ if len(arguments) > 1:
                         if d.get(arguments[-1], 0) == 0:
                             with open('mem.txt', 'a') as file:
                                 file.write(f'{arguments[-1]}`{arguments[-3]}`0\n')
+                                print(f'code created for {arguments[-3]} with name \'{arguments[-1]}\'')
                         else:
                             print('code already used')
                             choice = input('Do you want to overwrite it? y/N: ')
@@ -76,6 +77,7 @@ if len(arguments) > 1:
                                 temp[1] = arguments[-3]
                                 link_list[line] = "`".join(temp)
                                 write(link_list)
+                                print("Code has been overwritten")
                     else:
                         print("Code name cant contain '`'")
                 else:
@@ -147,8 +149,11 @@ if len(arguments) > 1:
 
     elif arguments[1] == 'list':
         if len(arguments) == 2:
-            for x in d:
-                print(f'Code: {x}, Link: {d[x]}')
+            if not link_list:
+                print("No links shortened yet")
+            for x in link_list:
+                temp = x.split("`")
+                print(f'Code: {temp[0]}, Link: {temp[1]}, Count: {temp[2].strip()}')
         else:
             print("No arguments expected after 'list'")
             
@@ -166,10 +171,11 @@ if len(arguments) > 1:
 
     elif arguments[1] == 'clear':
         if len(arguments) == 2:
-            print("Are you sure you want to clear all saved links? y/N: ")
+            print("Are you sure you want to clear all saved links?\nThis action can NOT be reversed. y/N: ", end = "")
             choice = input()
             if choice.lower() == 'y':
                 write("")
+                print("All saved links has been cleared")
         else:
             print("No arguments expected after 'clear'")
 
