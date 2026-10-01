@@ -214,6 +214,8 @@ However, this only stores edits made by the user and not read-only operations su
 
 This is intentional to keep `history.txt` less cluttered and make it more useful for viewing actual changes.
 
+This file is not intended to be edited manually. Treat it as read-only.
+
 ## Important Warnings
 
 1. Do NOT manually edit `mem.txt`. The program expects each line to follow the format: ``code`URL`count`` and the last line existing and being empty.
