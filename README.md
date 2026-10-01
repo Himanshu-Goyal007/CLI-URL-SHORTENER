@@ -9,10 +9,10 @@ A simple command-line URL shortener made with Python.
 
 ## How to Run
 
-Open a terminal in the folder containing `ls.py` and use:
+Open a terminal in the folder containing `main.py` and use:
 
 ```
-python ls.py <command> <arguments>
+python main.py <command> <arguments>
 ```
 
 The program stores saved links in `mem.txt`.
@@ -24,13 +24,13 @@ The program stores saved links in `mem.txt`.
 Syntax:
 
 ```
-python ls.py shorten <URL>
+python main.py shorten <URL>
 ```
 
 Example:
 
 ```
-python ls.py shorten https://www.google.com
+python main.py shorten https://www.google.com
 ```
 
 Creates an automatically generated code such as `link1`.
@@ -40,13 +40,13 @@ Creates an automatically generated code such as `link1`.
 Syntax:
 
 ```
-python ls.py shorten <URL> --alias <alias>
+python main.py shorten <URL> --alias <alias>
 ```
 
 Example:
 
 ```
-python ls.py shorten https://www.google.com --alias google
+python main.py shorten https://www.google.com --alias google
 ```
 
 Creates a custom code.
@@ -58,13 +58,13 @@ Creates a custom code.
 Syntax:
 
 ```
-python ls.py resolve <code>
+python main.py resolve <code>
 ```
 
 Example:
 
 ```
-python ls.py resolve link1
+python main.py resolve link1
 ```
 
 Opens the saved URL and increases its resolve count.
@@ -74,7 +74,7 @@ Opens the saved URL and increases its resolve count.
 Syntax:
 
 ```
-python ls.py delete <code>
+python main.py delete <code>
 ```
 
 Deletes the saved code and URL.
@@ -86,7 +86,7 @@ Deletes the saved code and URL.
 Syntax:
 
 ```
-python ls.py count <code>
+python main.py count <code>
 ```
 
 Displays how many times the code has been resolved.
@@ -96,7 +96,7 @@ Displays how many times the code has been resolved.
 Syntax:
 
 ```
-python ls.py list
+python main.py list
 ```
 
 Displays all saved codes and URLs.
@@ -106,7 +106,7 @@ Displays all saved codes and URLs.
 Syntax:
 
 ```
-python ls.py info <code>
+python main.py info <code>
 ```
 
 Displays the code, URL, and resolve count.
@@ -116,7 +116,7 @@ Displays the code, URL, and resolve count.
 Syntax:
 
 ```
-python ls.py clear
+python main.py clear
 ```
 
 Deletes all saved links after confirmation.
@@ -128,7 +128,7 @@ Deletes all saved links after confirmation.
 Syntax:
 
 ```
-python ls.py reset <code>
+python main.py reset <code>
 ```
 
 Resets the resolve count of a code to 0.
@@ -140,7 +140,7 @@ Resets the resolve count of a code to 0.
 Syntax:
 
 ```
-python ls.py search <text>
+python main.py search <text>
 ```
 
 Finds saved URLs containing the specified text.
@@ -150,7 +150,7 @@ Finds saved URLs containing the specified text.
 Syntax:
 
 ```
-python ls.py stats
+python main.py stats
 ```
 
 Displays the total links, total resolves, and most used link.
@@ -160,8 +160,8 @@ Displays the total links, total resolves, and most used link.
 Syntax:
 
 ```
-python ls.py sort
-python ls.py sort reversed
+python main.py sort
+python main.py sort reversed
 ```
 
 `sort` displays links from highest to lowest resolve count.
@@ -175,7 +175,7 @@ python ls.py sort reversed
 Syntax:
 
 ```
-python ls.py rename <old code> <new code>
+python main.py rename <old code> <new code>
 ```
 
 Replaces an existing code name by the new given name.
