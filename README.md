@@ -206,6 +206,12 @@ Example:
 link1`https://www.google.com`3
 ```
 
+The program also stores user activity in `history.txt`.
+
+However, this only stores edits made by the user and not read-only operations such as `resolve`, `list`, `search`, or checking information.
+
+This is intentional to keep `history.txt` less cluttered and make it more useful for viewing actual changes.
+
 ## Important Warnings
 
 1. Do NOT manually edit `mem.txt`. The program expects each line to follow the format: ``code`URL`count`` and the last line existing and being empty.

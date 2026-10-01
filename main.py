@@ -1,9 +1,18 @@
 import sys
 import webbrowser
 from urllib.parse import urlparse
+from datetime import datetime
 
 arguments = sys.argv
 d = {}
+
+with open("history.txt", "a") as file:
+    pass
+
+def audit(content):
+    with open("history.txt", "a") as file:
+        file.write(f'[{datetime.now().strftime("%d-%m-%Y %H:%M:%S")}]\n{content}\n\n')
+
 try:
     with open('mem.txt', 'r') as file:
         link_list = file.readlines()
@@ -55,6 +64,7 @@ if len(arguments) > 1:
                 with open('mem.txt', 'a') as file:
                     file.write(f'link{new_num()}`{arguments[-1]}`0\n')
                     print(f'code created for {arguments[-1]} with name \'link{new_num()}\'')
+                audit(f'new code created: \'link{new_num()}\' for link {arguments[-1]}')
             else:
                 print('Invalid URL')
         elif len(arguments) == 5:
@@ -65,6 +75,8 @@ if len(arguments) > 1:
                             with open('mem.txt', 'a') as file:
                                 file.write(f'{arguments[-1]}`{arguments[-3]}`0\n')
                                 print(f'code created for {arguments[-3]} with name \'{arguments[-1]}\'')
+                            audit(f'new code created: \'{arguments[-1]}\' for link {arguments[-3]}')
+                            
                         else:
                             print('code already used')
                             choice = input('Do you want to overwrite it? y/N: ')
@@ -75,6 +87,7 @@ if len(arguments) > 1:
                                 link_list[line] = "`".join(temp)
                                 write(link_list)
                                 print("Code has been overwritten")
+                                audit(f'code overwritten: {arguments[-3]} is replaced with {arguments[-1]}')
                     else:
                         print("Code name cant contain '`'")
                 else:
@@ -103,6 +116,7 @@ if len(arguments) > 1:
                 link_list.pop(line)
                 write(link_list)
                 print(f'Successfully deleted \'{arguments[-1]}\'')
+                audit(f'Code deleted: {arguments[-1]}')
             except TypeError:
                 print("No such code found")
         elif len(arguments) == 2:
@@ -174,6 +188,7 @@ if len(arguments) > 1:
             if choice.lower() == 'y':
                 write("")
                 print("All saved links has been cleared")
+                audit('All links cleared')
             else:
                 print("Operation cancelled")
         else:
@@ -187,6 +202,7 @@ if len(arguments) > 1:
                 link_list[find_line(-1)] = "`".join(line)
                 write(link_list)
                 print(f'Click count has been reset for \'{arguments[-1]}\'')
+                audit(f'Reset click count: {arguments[-1]}')
             elif len(arguments) == 2:
                 print("No code entered")
             else:
@@ -253,6 +269,7 @@ if len(arguments) > 1:
                 link_list[find_line(-2)] = lines
                 write(link_list)
                 print(f'Successfully renamed {arguments[-2]} to {arguments[-1]}')
+                audit(f'Code renamed: {arguments[-2]} to {arguments[-1]}')
             elif arguments[-2] not in d and arguments[-1] in d:
                 print(f'{arguments[-2]} is not a saved code')
             elif arguments[-1] in d:
