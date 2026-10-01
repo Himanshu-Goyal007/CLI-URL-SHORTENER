@@ -206,6 +206,8 @@ Example:
 link1`https://www.google.com`3
 ```
 
+### Audit logging
+
 The program also stores user activity in `history.txt`.
 
 However, this only stores edits made by the user and not read-only operations such as `resolve`, `list`, `search`, or checking information.
