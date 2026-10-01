@@ -4,9 +4,6 @@ from urllib.parse import urlparse
 
 arguments = sys.argv
 d = {}
-# Url and code cant contain `
-# mem.txt is always empty when program is installed and user cant edit mem.txt
-# assume webbrowser.open() works everytime
 try:
     with open('mem.txt', 'r') as file:
         link_list = file.readlines()
@@ -105,6 +102,7 @@ if len(arguments) > 1:
                 line = find_line(-1)
                 link_list.pop(line)
                 write(link_list)
+                print(f'Successfully deleted \'{arguments[-1]}\'')
             except TypeError:
                 print("No such code found")
         elif len(arguments) == 2:
@@ -176,6 +174,8 @@ if len(arguments) > 1:
             if choice.lower() == 'y':
                 write("")
                 print("All saved links has been cleared")
+            else:
+                print("Operation cancelled")
         else:
             print("No arguments expected after 'clear'")
 
@@ -186,6 +186,7 @@ if len(arguments) > 1:
                 line[2] = '0\n'
                 link_list[find_line(-1)] = "`".join(line)
                 write(link_list)
+                print(f'Click count has been reset for \'{arguments[-1]}\'')
             elif len(arguments) == 2:
                 print("No code entered")
             else:
@@ -251,6 +252,7 @@ if len(arguments) > 1:
                 lines = "`".join(lines) 
                 link_list[find_line(-2)] = lines
                 write(link_list)
+                print(f'Successfully renamed {arguments[-2]} to {arguments[-1]}')
             elif arguments[-2] not in d and arguments[-1] in d:
                 print(f'{arguments[-2]} is not a saved code')
             elif arguments[-1] in d:
