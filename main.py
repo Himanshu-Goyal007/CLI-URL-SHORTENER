@@ -113,7 +113,7 @@ if len(arguments) > 1:
     elif arguments[1] == 'resolve':
         if len(arguments) == 3:
             try:
-                print(f"Opening {d[arguments[-1]]}")
+                print(f"Opening {d[arguments[-1]]} in your browser...")
                 webbrowser.open(d[arguments[-1]])
                 with open('mem.txt', 'r') as file:
                     lines = file.readlines()
@@ -263,6 +263,12 @@ if len(arguments) > 1:
             print("Please enter correct amount of arguments")
             print('Please read README.md for list of commands')
 
+    elif arguments[1] == 'help':
+        if len(arguments) == 2:
+            print('Opening README.md in your browser...')
+            webbrowser.open("https://github.com/Himanshu-Goyal007/CLI-URL-SHORTENER/blob/main/README.md")
+        else:
+            print("No argument expected after 'help'")
         
 
 

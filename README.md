@@ -182,6 +182,16 @@ Replaces an existing code name by the new given name.
 
 This does not reset click count.
 
+### 14. Help
+
+Syntax:
+
+```
+python main.py help
+```
+
+Opens README.md file on github
+
 ## Data Storage
 
 Each saved link is stored in `mem.txt` as:
